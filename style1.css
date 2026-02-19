@@ -1,0 +1,333 @@
+:root {
+  --bg: #121212;
+  --card: #1e1e2a;
+  --text: #e0f7ff;
+  --muted: #a0cfff;
+  --accent: #7fdbff;
+  --accent-light: #5bc0ff;
+  --border: #333344;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page-content {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* ================= TOPBAR ================= */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  background-color: #1a1a2e;
+  color: var(--text);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.topnav a {
+  margin: 0 14px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.topnav a:hover {
+  color: var(--accent);
+}
+
+.topnav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+.topnav a:hover::after {
+  width: 100%;
+}
+
+.search input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: #2a2a3d;
+  color: var(--text);
+}
+
+/* ================= HEADER ================= */
+
+.site-header {
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+
+.site-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.site-header p {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background-color: var(--card);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: #2a2a3d;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.contact-form .btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: #121212;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.contact-form .btn:hover {
+  background-color: var(--accent-light);
+}
+
+/* ================= GRID (2 x 4 Layout) ================= */
+
+/* ================= GRID (2 Rows x 4 Columns) ================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  grid-template-rows: repeat(2, auto); /* 2 rows */
+  gap: 30px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+  max-width: 1400px;
+}
+
+/* ================= CARDS ================= */
+
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(127, 219, 255, 0.25);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h2 {
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.card-body p {
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #121212;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background: var(--accent-light);
+  transform: scale(1.05);
+}
+
+/* ================= DETAILS ================= */
+
+.details {
+  margin-top: 80px;
+  display: grid;
+  gap: 50px;
+}
+
+.category-title {
+  margin-top: 50px;
+  font-size: 1.8rem;
+  color: var(--accent);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 6px;
+}
+
+.recipe {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 30px;
+  border: 2px solid var(--border);
+  scroll-margin-top: 120px;
+}
+
+.recipe-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+}
+
+.recipe-layout img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer {
+  background-color: #1a1a2e;
+  color: var(--text);
+  text-align: center;
+  padding: 50px 20px 20px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
